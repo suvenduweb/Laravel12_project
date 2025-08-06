@@ -51,6 +51,10 @@ Route::controller(SliderController::class)->group(function(){
 
     Route::get('/get/slider', 'GetSlider')->name('get.slider');
     Route::post('/update/slider', 'UpdateSlider')->name('update.slider');
+    Route::post('/edit-slider/{id}', 'EditSlider');
+    Route::post('/edit-features/{id}', 'EditFeatures');
+    Route::post('/edit-reviews/{id}', 'EditReviews');
+    Route::post('/edit-answers/{id}', 'EditAnswers');
 
 });
 
