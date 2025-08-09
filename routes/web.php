@@ -72,11 +72,13 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::controller(HomeController::class)->group(function(){
-
         Route::get('/get/clarifies', 'GetClarifies')->name('get.clarifies');
         Route::post('/update/clarifies', 'UpdateClarifies')->name('update.clarifi');
+    });
 
-
+    Route::controller(HomeController::class)->group(function(){
+        Route::get('/get/financial', 'GetFinancial')->name('get.financial');
+        Route::post('/update/financial', 'UpdateFinancial')->name('update.financial');
     });
 
 

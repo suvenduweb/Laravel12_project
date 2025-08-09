@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Feature;
 use App\Models\Clarifi;
+use App\Models\Financial;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -123,6 +124,66 @@ class HomeController extends Controller
 
             $notification =array(
                 'message' => 'Clarifi Update Without Image Successfully',
+                'alert-type' => 'success',
+            );
+       }
+
+
+       return redirect()->back()->with($notification);
+
+    }
+
+    public function GetFinancial(){
+        $financial = Financial::find(1);
+
+
+        return view('admin.backend.financial.get_financial',compact('financial'));
+    }
+
+    public function UpdateFinancial(Request $request ){
+
+        $financial_id = $request->id;
+        $financial = Financial::find($financial_id);
+
+       if ($request->file('image')) {
+            $image= $request->file('image');
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()).'.'.
+            $image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img->resize(307,619)->save(public_path('upload/financial/'.$name_gen));
+            $save_url = 'upload/financial/'.$name_gen;
+
+            if (file_exists(public_path($financial->image))) {
+                @unlink(public_path($financial->image));
+            }
+
+            Financial::find($financial_id)->update([
+                'title' => $request->title,
+
+                'description' => $request->description,
+                'unified_dashboard' => $request->unified_dashboard,
+                'realtime_update' => $request->realtime_update,
+                'image' => $save_url,
+
+            ]);
+
+            $notification =array(
+                'message' => 'Financial Update With Image  Successfully',
+                'alert-type' => 'success',
+            );
+       }else{
+            Financial::find($financial_id)->update([
+                'title' => $request->title,
+                'unified_dashboard' => $request->unified_dashboard,
+                'realtime_update' => $request->realtime_update,
+                'description' => $request->description,
+
+
+            ]);
+
+            $notification =array(
+                'message' => 'Financial Update Without Image Successfully',
                 'alert-type' => 'success',
             );
        }

@@ -92,8 +92,6 @@
 
                             </li>
 
-
-
                             <li>
                                 <a href="#sidebarClarifi" data-bs-toggle="collapse">
                                     <i data-feather="alert-octagon"></i>
@@ -104,6 +102,21 @@
                                     <ul class="nav-second-level">
                                         <li>
                                             <a href="{{route('get.clarifies')}}" class="tp-link">Get Clarifies</a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="#sidebarFinancial" data-bs-toggle="collapse">
+                                    <i data-feather="alert-octagon"></i>
+                                    <span> Financial Setup </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="sidebarFinancial">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{route('get.financial')}}" class="tp-link">Get Financial</a>
                                         </li>
 
                                     </ul>
