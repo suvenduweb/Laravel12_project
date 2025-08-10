@@ -81,5 +81,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/financial', 'UpdateFinancial')->name('update.financial');
     });
 
+    Route::controller(HomeController::class)->group(function(){
+        Route::get('/get/usability', 'GetUsability')->name('get.usability');
+        Route::post('/update/usability', 'UpdateUsability')->name('update.usability');
+    });
+
 
 });
