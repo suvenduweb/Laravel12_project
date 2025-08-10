@@ -43,8 +43,8 @@
 
 
                             <td>
-                                <a href="{{route('edit.feature',$item->id)}}" class="btn btn-success btn-sm">Edit</a>
-                                <a href="{{route('delete.feature',$item->id)}}" class="btn btn-danger btn-sm" id="delete">Delete</a>
+                                <a href="{{route('edit.connect',$item->id)}}" class="btn btn-success btn-sm">Edit</a>
+                                <a href="{{route('delete.connect',$item->id)}}" class="btn btn-danger btn-sm" id="delete">Delete</a>
                             </td>
                         </tr>
                         @endforeach

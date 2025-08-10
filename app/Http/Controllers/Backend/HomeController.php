@@ -258,9 +258,61 @@ class HomeController extends Controller
 
     public function AllConnect(){
         $connect = Connect::latest()->get();
-
-
         return view('admin.backend.connect.all_connect',compact('connect'));
     }
 
+    public function AddConnect(){
+        return view('admin.backend.connect.add_connect');
+    }
+
+    public function StoreConnect(Request $request ){
+
+       Connect::create([
+        'title' => $request->title,
+
+        'description' => $request->description,
+       ]);
+
+       $notification =array(
+        'message' => 'Connect Inserted Successfully',
+        'alert-type' => 'success',
+       );
+       return redirect()->route('all.connect')->with($notification);
+
+    }
+
+    public function EditConnect($id){
+        $connect = Connect::find($id);
+        return view('admin.backend.connect.edit_connect',compact('connect'));
+    }
+
+
+    public function UpdateConnect(Request $request ){
+
+        $con_id = $request->id;
+
+            Connect::find($con_id)->update([
+                'title' => $request->title,
+                'description' => $request->description,
+            ]);
+
+            $notification =array(
+                'message' => 'Connect Update Successfully',
+                'alert-type' => 'success',
+            );
+
+       return redirect()->route('all.connect')->with($notification);
+    }
+
+    public function DeleteConnect($id){
+
+        Connect::find($id)->delete();
+
+        $notification =array(
+            'message' => 'Connect Update Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
+    }
 }
