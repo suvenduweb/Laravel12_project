@@ -8,6 +8,7 @@ use App\Models\Feature;
 use App\Models\Clarifi;
 use App\Models\Financial;
 use App\Models\Usability;
+use App\Models\Connect;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -254,5 +255,12 @@ class HomeController extends Controller
 
     }
 
+
+    public function AllConnect(){
+        $connect = Connect::latest()->get();
+
+
+        return view('admin.backend.connect.all_connect',compact('connect'));
+    }
 
 }

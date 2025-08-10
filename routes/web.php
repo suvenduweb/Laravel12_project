@@ -86,5 +86,10 @@ Route::middleware('auth')->group(function () {
         Route::post('/update/usability', 'UpdateUsability')->name('update.usability');
     });
 
+    Route::controller(HomeController::class)->group(function(){
+        Route::get('/all/connect', 'AllConnect')->name('all.connect');
+        Route::post('/update/usability', 'UpdateUsability')->name('update.usability');
+    });
+
 
 });
