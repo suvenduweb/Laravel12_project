@@ -315,4 +315,12 @@ class HomeController extends Controller
 
         return redirect()->back()->with($notification);
     }
+
+    public function DirectUpdateConnect(Request $request , $id){
+
+    $connect = Connect::findOrFail($id);
+    $connect->update($request->only(['title', 'description']));
+    return response()->json(['success' => true, 'message' => "Updated Successfully"]);
+
+    }
 }

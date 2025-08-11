@@ -93,6 +93,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/edit/connect/{id}', 'EditConnect')->name('edit.connect');
         Route::post('/update/connect', 'UpdateConnect')->name('update.connect');
         Route::get('/delete/connect/{id}', 'DeleteConnect')->name('delete.connect');
+        Route::post('/direct-update-connect/{id}', 'DirectUpdateConnect');
     });
 
 
