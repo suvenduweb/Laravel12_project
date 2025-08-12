@@ -9,6 +9,7 @@ use App\Models\Clarifi;
 use App\Models\Financial;
 use App\Models\Usability;
 use App\Models\Connect;
+use App\Models\Faq;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -318,9 +319,69 @@ class HomeController extends Controller
 
     public function DirectUpdateConnect(Request $request , $id){
 
-    $connect = Connect::findOrFail($id);
-    $connect->update($request->only(['title', 'description']));
-    return response()->json(['success' => true, 'message' => "Updated Successfully"]);
+        $connect = Connect::findOrFail($id);
+        $connect->update($request->only(['title', 'description']));
+        return response()->json(['success' => true, 'message' => "Updated Successfully"]);
 
+    }
+
+    public function AllFaq(){
+        $faq = Faq::latest()->get();
+        return view('admin.backend.faq.all_faq',compact('faq'));
+    }
+
+    public function AddFaq(){
+        return view('admin.backend.faq.add_faq');
+    }
+
+    public function StoreFaq(Request $request ){
+
+       Faq::create([
+        'title' => $request->title,
+
+        'description' => $request->description,
+       ]);
+
+       $notification =array(
+        'message' => 'Faq Inserted Successfully',
+        'alert-type' => 'success',
+       );
+       return redirect()->route('all.faq')->with($notification);
+
+    }
+
+    public function EditFaq($id){
+        $faq = Faq::find($id);
+        return view('admin.backend.faq.edit_faq',compact('faq'));
+    }
+
+
+    public function UpdateFaq(Request $request ){
+
+        $faq_id = $request->id;
+
+            Faq::find($faq_id)->update([
+                'title' => $request->title,
+                'description' => $request->description,
+            ]);
+
+            $notification =array(
+                'message' => 'Faq Update Successfully',
+                'alert-type' => 'success',
+            );
+
+       return redirect()->route('all.faq')->with($notification);
+    }
+
+    public function DeleteFaq($id){
+
+        Faq::find($id)->delete();
+
+        $notification =array(
+            'message' => 'Faq Delete Successfully',
+            'alert-type' => 'success',
+        );
+
+        return redirect()->back()->with($notification);
     }
 }

@@ -96,5 +96,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/direct-update-connect/{id}', 'DirectUpdateConnect');
     });
 
+    Route::controller(HomeController::class)->group(function(){
+        Route::get('/all/faq', 'AllFaq')->name('all.faq');
+        Route::get('/add/faq', 'AddFaq')->name('add.faq');
+        Route::post('/store/faq', 'StoreFaq')->name('store.faq');
+        Route::get('/edit/faq/{id}', 'EditFaq')->name('edit.faq');
+        Route::post('/update/faq', 'UpdateFaq')->name('update.faq');
+        Route::get('/delete/faq/{id}', 'DeleteFaq')->name('delete.faq');
+        // Route::post('/direct-update-connect/{id}', 'DirectUpdateConnect');
+    });
+
 
 });
