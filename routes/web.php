@@ -106,5 +106,10 @@ Route::middleware('auth')->group(function () {
         // Route::post('/direct-update-connect/{id}', 'DirectUpdateConnect');
     });
 
+    Route::controller(HomeController::class)->group(function(){
+        Route::post('/direct-update-app/{id}', 'DirectUpdateApp');
+        Route::post('/direct-update-app-image/{id}', 'DirectUpdateAppImge');
+
+    });
 
 });

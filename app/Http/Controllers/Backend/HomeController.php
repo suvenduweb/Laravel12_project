@@ -10,6 +10,7 @@ use App\Models\Financial;
 use App\Models\Usability;
 use App\Models\Connect;
 use App\Models\Faq;
+use App\Models\App;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -317,7 +318,7 @@ class HomeController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    public function DirectUpdateConnect(Request $request , $id){
+    public function DirectUpdateConnect(Request $request, $id){
 
         $connect = Connect::findOrFail($id);
         $connect->update($request->only(['title', 'description']));
@@ -383,5 +384,11 @@ class HomeController extends Controller
         );
 
         return redirect()->back()->with($notification);
+    }
+
+    public function DirectUpdateApp(Request $request, $id){
+        $app = App::findOrFail($id);
+        $app->update($request->only(['title', 'description']));
+        return response()->json(['success' => true, 'message' => "Updated Successfully"]);
     }
 }
