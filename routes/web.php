@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\FrontendController;
 
 Route::get('/', function () {
     return view('home.index');
@@ -110,6 +111,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/direct-update-app/{id}', 'DirectUpdateApp');
         Route::post('/direct-update-app-image/{id}', 'DirectUpdateAppImge');
 
+
     });
 
 });
+
+//out side of all middlwire
+Route::get('/team',[FrontendController::class, 'OurTeam'])->name('our.team');
+

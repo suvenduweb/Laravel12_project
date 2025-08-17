@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function(){
     /// Image Uploaded Function
 
     let imageElemet = document.getElementById("appImage");
-    let uploadImage = document.getElementById("uploadImage");
+    let uploadInput = document.getElementById("uploadImage");
 
     imageElemet.addEventListener("click", function() {
         @if (auth()->check())
@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function(){
         formData.append("image",file);
         formData.append("_token",document.querySelector('meta[name="csrf-token"]').getAttribute("content"));
 
-        fetch(`direct-update-app/1`, {
+        fetch(`direct-update-app-image/1`, {
             method: "POST",
 
             body: formData
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function(){
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                imageElement.src = data.image_url;
+                imageElemet.src = data.image_url;
                 console.log(`image updated successfully`);
             }
         })

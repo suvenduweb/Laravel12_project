@@ -391,4 +391,31 @@ class HomeController extends Controller
         $app->update($request->only(['title', 'description']));
         return response()->json(['success' => true, 'message' => "Updated Successfully"]);
     }
+
+    public function DirectUpdateAppImge(Request $request, $id){
+        $app = App::findOrFail($id);
+
+        if ($request->file('image')) {
+            $image= $request->file('image');
+            $manager = new ImageManager(new Driver());
+            $name_gen = hexdec(uniqid()).'.'.
+            $image->getClientOriginalExtension();
+            $img = $manager->read($image);
+            $img->resize(360,481)->save(public_path('upload/apps/'.$name_gen));
+            $save_url = 'upload/apps/'.$name_gen;
+
+            if (file_exists(public_path($app->image))) {
+                        @unlink(public_path($app->image));
+
+                }
+
+            $app->update([
+                'image' => $save_url,
+            ]);
+
+            return response()->json(['success' => true, 'image_url' => $save_url, 'message' => "Updated Successfully"]);
+       }
+
+       return response()->json(['success' => false,  'message' => "Upload Failed"],400);
+    }
 }
