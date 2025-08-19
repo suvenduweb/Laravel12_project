@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\HomeController;
 use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\FrontendController;
 
 Route::get('/', function () {
@@ -112,6 +113,16 @@ Route::middleware('auth')->group(function () {
         Route::post('/direct-update-app-image/{id}', 'DirectUpdateAppImge');
 
 
+    });
+
+    Route::controller(TeamController::class)->group(function(){
+        Route::get('/all/team', 'AllTeam')->name('all.team');
+        Route::get('/add/team', 'AddTeam')->name('add.team');
+        // Route::post('/store/faq', 'StoreFaq')->name('store.faq');
+        // Route::get('/edit/faq/{id}', 'EditFaq')->name('edit.faq');
+        // Route::post('/update/faq', 'UpdateFaq')->name('update.faq');
+        // Route::get('/delete/faq/{id}', 'DeleteFaq')->name('delete.faq');
+        // Route::post('/direct-update-connect/{id}', 'DirectUpdateConnect');
     });
 
 });
