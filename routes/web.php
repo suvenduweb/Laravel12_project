@@ -118,10 +118,10 @@ Route::middleware('auth')->group(function () {
     Route::controller(TeamController::class)->group(function(){
         Route::get('/all/team', 'AllTeam')->name('all.team');
         Route::get('/add/team', 'AddTeam')->name('add.team');
-        // Route::post('/store/faq', 'StoreFaq')->name('store.faq');
-        // Route::get('/edit/faq/{id}', 'EditFaq')->name('edit.faq');
-        // Route::post('/update/faq', 'UpdateFaq')->name('update.faq');
-        // Route::get('/delete/faq/{id}', 'DeleteFaq')->name('delete.faq');
+        Route::post('/store/team', 'StoreTeam')->name('store.team');
+        Route::get('/edit/team/{id}', 'EditTeam')->name('edit.team');
+        Route::post('/update/team', 'UpdateTeam')->name('update.team');
+        Route::get('/delete/team/{id}', 'DeleteTeam')->name('delete.team');
         // Route::post('/direct-update-connect/{id}', 'DirectUpdateConnect');
     });
 
