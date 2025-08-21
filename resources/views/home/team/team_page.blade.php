@@ -29,21 +29,30 @@
       <div class="lonyo-section-title max-w616">
         <h2>Meet our brilliant team members</h2>
       </div>
+
+    @php
+        $team = App\Models\Team::latest()->get();
+    @endphp
+
       <div class="row">
+
+        @foreach ($team as $item)
 
         <div class="col-lg-3 col-md-6">
           <div class="lonyo-team-wrap" data-aos="fade-up" data-aos-duration="700">
             <div class="lonyo-team-thumb">
-              <a href="single-team.html"><img src="{{asset('frontend/assets/images/about-us/t2.png')}}" alt=""></a>
+              <a href="single-team.html"><img src="{{asset($item->image)}}" alt=""></a>
             </div>
             <div class="lonyo-team-content2">
               <a href="single-team.html">
-                <h6>Alex Jonny</h6>
+                <h6>{{$item->name}}</h6>
               </a>
-              <p>Head of Product</p>
+              <p>{{$item->position}}</p>
             </div>
           </div>
         </div>
+
+        @endforeach
 
       </div>
       <div class="mt-50 team-btn" data-aos="fade-up" data-aos-duration="700">
