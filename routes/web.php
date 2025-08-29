@@ -129,4 +129,5 @@ Route::middleware('auth')->group(function () {
 
 //out side of all middlwire
 Route::get('/team',[FrontendController::class, 'OurTeam'])->name('our.team');
+Route::get('/about',[FrontendController::class, 'AboutUs'])->name('about.us');
 
