@@ -16,7 +16,7 @@
                   <a href="{{url('/')}}">Home</a>
                 </li>
                 <li class="menu-item-has-children">
-                  <a href="{{route('about.us')}}">About Us</a>
+                  <a href="{{route('get.aboutus')}}">About Us</a>
                   <ul class="sub-menu">
                     <li>
                       <a href="index.html">

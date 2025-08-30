@@ -125,6 +125,14 @@ Route::middleware('auth')->group(function () {
         // Route::post('/direct-update-connect/{id}', 'DirectUpdateConnect');
     });
 
+    Route::controller(FrontendController::class)->group(function(){
+        Route::get('/get/aboutus', 'getAboutUs')->name('get.aboutus');
+
+
+    });
+
+
+
 });
 
 //out side of all middlwire
