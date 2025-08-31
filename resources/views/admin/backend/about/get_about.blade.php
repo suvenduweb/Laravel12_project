@@ -33,7 +33,7 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-xl-12">
                                                 <div class="card border mb-0">
-                                        <form action="{{route('update.slider')}}" method="post" enctype="multipart/form-data">
+                                        <form action="{{route('update.aboutus')}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             <input type="hidden" name="id" id="id" value="{{$about->id}}">
                                             <div class="card-header">
@@ -57,7 +57,12 @@
                                                 <div class="form-group mb-3 row">
                                                     <label class="form-label">Description</label>
                                                     <div class="col-lg-12 col-xl-12">
-                                                        <textarea name="description" class="form-control" >{{$about->description}}</textarea>
+
+                                                        <textarea name="description" id="description"  class="form-control" style="display: none"></textarea>
+
+                                                        <div id="quill-editor" style="height: 200px;">
+                                                            {!! $about->description !!}
+                                                        </div>
                                                     </div>
                                                 </div>
 
@@ -103,6 +108,15 @@
         </div>
     </div>
 <script>
+    document.querySelector('form').onsubmit = function () {
+        var description = document.querySelector('#description');
+        description.value = quill.root.innerHTML;
+    };
+
+
+
+
+
     $(document).ready(function() {
         $('#image').change(function(e){
             var reader = new FileReader();

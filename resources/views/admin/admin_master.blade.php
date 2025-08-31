@@ -27,6 +27,10 @@
         <!-- Icons -->
         <link href="{{asset('backend/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+                 <!-- Quill css -->
+        <link href="{{asset('backend/assets/libs/quill/quill.core.js')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/assets/libs/quill/quill.snow.css')}}" rel="stylesheet" type="text/css" />
+        <link href="{{asset('backend/assets/libs/quill/quill.bubble.css')}}" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -100,6 +104,13 @@
         <script src="{{ asset('backend/assets/js/validate.min.js') }}"></script>
 
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+                <!-- Quill Editor Js -->
+        <script src="{{ asset('backend/assets/libs/quill/quill.core.js')}}"></script>
+        <script src="{{ asset('backend/assets/libs/quill/quill.min.js')}}"></script>
+
+        <!-- Quill Demo Js -->
+        <script src="{{ asset('backend/assets/js/pages/quilljs.init.js')}}"></script>
 
         <script>
         @if(Session::has('message'))

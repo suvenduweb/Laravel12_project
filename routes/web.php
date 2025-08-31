@@ -127,6 +127,7 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(FrontendController::class)->group(function(){
         Route::get('/get/aboutus', 'getAboutUs')->name('get.aboutus');
+        Route::post('/update/aboutus', 'updateAboutUs')->name('update.aboutus');
 
 
     });
