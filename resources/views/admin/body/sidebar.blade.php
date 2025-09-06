@@ -213,7 +213,27 @@
                                 </div>
                             </li>
 
+
+
+
                             <li class="menu-title mt-2">General</li>
+
+                            <li>
+                                <a href="#blogcat" data-bs-toggle="collapse">
+                                    <i data-feather="alert-octagon"></i>
+                                    <span> Blog Category Setup </span>
+                                    <span class="menu-arrow"></span>
+                                </a>
+                                <div class="collapse" id="blogcat">
+                                    <ul class="nav-second-level">
+                                        <li>
+                                            <a href="{{route('all.blog.category')}}" class="tp-link">Blog Category</a>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                            </li>
 
                             <li>
                                 <a href="#sidebarBaseui" data-bs-toggle="collapse">
