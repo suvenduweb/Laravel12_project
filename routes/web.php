@@ -8,7 +8,7 @@ use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Backend\TeamController;
 use App\Http\Controllers\FrontendController;
-use App\Http\Controllers\BlogController;
+use App\Http\Controllers\Backend\BlogController;
 
 Route::get('/', function () {
     return view('home.index');
@@ -133,6 +133,7 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(BlogController::class)->group(function(){
         Route::get('/blog/category', 'BlogCategory')->name('all.blog.category');
+        Route::post('/store/blog/category', 'StoreBlogCategory')->name('store.blog.category');
 
     });
 
