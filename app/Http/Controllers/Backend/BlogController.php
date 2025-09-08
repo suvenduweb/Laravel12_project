@@ -29,5 +29,32 @@ class BlogController extends Controller
        return redirect()->route('all.blog.category')->with($notification);
     }
 
+    public function EditBlogCategory($id){
+        $categorys =  BlogCategory::find($id);
+        return response()->json($categorys);
+    }
 
+    public function UpdateBlogCategory(Request $request){
+        $cat_id = $request->cat_id;
+         BlogCategory::find($cat_id)->update([
+
+            'category_name' => $request->category_name,
+            'category_slug' => strtolower(str_replace(' ', '-',$request->category_name)),
+        ]);
+
+        $notification =array(
+        'message' => 'Blog Category Updated Successfully',
+        'alert-type' => 'success',
+       );
+       return redirect()->route('all.blog.category')->with($notification);
+    }
+
+    public function DeleteBlogCategory($id){
+        $categorys =  BlogCategory::find($id)->delete();
+        $notification =array(
+        'message' => 'Blog Category Delete Successfully',
+        'alert-type' => 'success',
+       );
+       return redirect()->route('all.blog.category')->with($notification);
+    }
 }
