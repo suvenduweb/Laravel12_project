@@ -57,4 +57,5 @@ class BlogController extends Controller
        );
        return redirect()->route('all.blog.category')->with($notification);
     }
+    // sfd
 }
