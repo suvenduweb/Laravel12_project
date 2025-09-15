@@ -140,6 +140,14 @@ Route::middleware('auth')->group(function () {
 
     });
 
+    Route::controller(BlogController::class)->group(function(){
+        Route::get('/blog/post', 'AllBlogPost')->name('all.blog.post');
+        Route::get('/add/post', 'AddBlogPost')->name('add.blog.post');
+        Route::post('/store/post', 'StoreBlogPost')->name('store.blog.post');
+
+
+    });
+
 
 
 });
