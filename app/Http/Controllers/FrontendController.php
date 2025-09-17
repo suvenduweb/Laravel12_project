@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\About;
+use App\Models\BlogPost;
+use App\Models\BlogCategory;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
@@ -70,6 +72,12 @@ class FrontendController extends Controller
 
        return redirect()->back()->with($notification);
 
+    }
+
+    public function BlogePage(){
+
+        $blogcat =  BlogCategory::latest()->withCount('posts')->get();
+        return view('home.blog.list_blog',compact('blogcat'));
     }
 
 

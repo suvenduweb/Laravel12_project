@@ -146,6 +146,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/store/post', 'StoreBlogPost')->name('store.blog.post');
         Route::get('/edit/blog/post/{id}', 'EditBlogPost')->name('edit.blog.post');
         Route::post('/update/post', 'UpdateBlogPost')->name('update.blog.post');
+        Route::post('/delete/post/{id}', 'DeleteBlogPost')->name('delete.blog.post');
     });
 
 
@@ -155,4 +156,5 @@ Route::middleware('auth')->group(function () {
 //out side of all middlwire
 Route::get('/team',[FrontendController::class, 'OurTeam'])->name('our.team');
 Route::get('/about',[FrontendController::class, 'AboutUs'])->name('about.us');
+Route::get('/blog',[FrontendController::class, 'BlogePage'])->name('blog.page');
 
