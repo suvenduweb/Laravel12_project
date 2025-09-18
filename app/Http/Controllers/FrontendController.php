@@ -77,7 +77,9 @@ class FrontendController extends Controller
     public function BlogePage(){
 
         $blogcat =  BlogCategory::latest()->withCount('posts')->get();
-        return view('home.blog.list_blog',compact('blogcat'));
+        $post = BlogPost::latest()->limit(5)->get();
+        $resent_post = BlogPost::latest()->limit(3)->get();
+        return view('home.blog.list_blog',compact('blogcat','post','resent_post'));
     }
 
 
