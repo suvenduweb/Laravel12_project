@@ -84,7 +84,7 @@ class BlogController extends Controller
        BlogPost::create([
         'blog_cat_id' => $request->blog_cat_id,
         'post_title' => $request->post_title,
-        'post_slug' => strtolower(str_replace(' ', '-',$request->post_slug)),
+        'post_slug' => strtolower(str_replace(' ', '-',$request->post_title)),
         'long_descp' => $request->long_descp,
         'image' => $save_url,
 
@@ -119,7 +119,7 @@ class BlogController extends Controller
             BlogPost::find($post_id)->update([
                  'blog_cat_id' => $request->blog_cat_id,
                 'post_title' => $request->post_title,
-                'post_slug' => strtolower(str_replace(' ', '-',$request->post_slug)),
+                'post_slug' => strtolower(str_replace(' ', '-',$request->post_title)),
                 'long_descp' => $request->long_descp,
                 'image' => $save_url,
 
@@ -133,7 +133,7 @@ class BlogController extends Controller
             BlogPost::find($post_id)->update([
                 'blog_cat_id' => $request->blog_cat_id,
                 'post_title' => $request->post_title,
-                'post_slug' => strtolower(str_replace(' ', '-',$request->post_slug)),
+                'post_slug' => strtolower(str_replace(' ', '-',$request->post_title)),
                 'long_descp' => $request->long_descp,
 
 

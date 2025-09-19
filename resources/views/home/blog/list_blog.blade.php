@@ -48,7 +48,7 @@
                 </ul>
                 </div>
                 <div class="lonyo-blog-content">
-                <h2><a href="single-blog.html">{{$item->post_title}}</a></h2>
+                <h2><a href="{{url('blog/details/'.$item->post_slug)}}">{{$item->post_title}}</a></h2>
                 <p>{!! Str::limit($item->long_descp,180,'...') !!}</p>
                 </div>
                 <div class="lonyo-blog-btn">
@@ -107,7 +107,7 @@
                 </div>
                 <div class="lonyo-blog-recent-post-data">
                   <ul>
-                    <li><img src="{{asset('frontend/assets/images/blog/date.svg')}}" alt="">{{$item->created_at->format('M d Y')}}</li>
+                    <li><img src="{{asset('frontend/assets/images/blog/date.svg')}}" alt="">{{$recent->created_at->format('M d Y')}}</li>
                   </ul>
                   <div>
                     <h4>{{$recent->post_title}}</h4>
