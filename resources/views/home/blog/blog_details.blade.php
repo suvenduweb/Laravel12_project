@@ -64,7 +64,7 @@
               <div class="lonyo-blog-categorie">
                 <ul>
                   @foreach ($blogcat as $cat)
-                        <li><a href="single-blog.html">{{$cat->category_name}} <span>({{$cat->posts_count}})</span></a></li>
+                        <li><a href="{{url('blog/category/'.$cat->id)}}">{{$cat->category_name}} <span>({{$cat->posts_count}})</span></a></li>
                     @endforeach
                 </ul>
               </div>
