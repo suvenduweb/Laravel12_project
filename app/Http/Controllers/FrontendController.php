@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\BlogPost;
 use App\Models\BlogCategory;
+use App\Models\Contact;
 use Intervention\Image\ImageManager;
 use Intervention\Image\Drivers\Gd\Driver;
 
