@@ -105,4 +105,35 @@ class FrontendController extends Controller
         return view('home.contact.contact_us');
     }
 
+    public function ContactMessage(Request $request ){
+
+       Contact::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'message' => $request->message,
+       ]);
+
+       $notification =array(
+        'message' => 'Your Message Sent Successfully',
+        'alert-type' => 'success',
+       );
+       return redirect()->back()->with($notification);
+
+    }
+
+    public function ContactAllMessage(){
+        $message = Contact::latest()->get();
+        return view('admin.backend.contact.all_message',compact('message'));
+    }
+
+    public function DeleteMessage($id){
+
+        Contact::find($id)->delete();
+        $notification =array(
+        'message' => ' Delete Successfully',
+        'alert-type' => 'success',
+       );
+       return redirect()->route('contact.all.message')->with($notification);
+    }
+
 }

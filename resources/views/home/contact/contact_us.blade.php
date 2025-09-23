@@ -84,7 +84,7 @@
               <div class="lonyo-main-field-textarea">
                 <textarea class="button-text" name="message" placeholder="Write your message here..."></textarea>
               </div>
-              <button class="lonyo-default-btn extra-btn d-block" type="button">Send your message</button>
+              <button class="lonyo-default-btn extra-btn d-block" type="submit">Send your message</button>
             </form>
           </div>
         </div>

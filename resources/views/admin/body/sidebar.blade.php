@@ -257,29 +257,11 @@
 
 
 
-                            <li>
-                                <a href="#sidebarBaseui" data-bs-toggle="collapse">
-                                    <i data-feather="package"></i>
-                                    <span> Components </span>
-                                    <span class="menu-arrow"></span>
-                                </a>
-                                <div class="collapse" id="sidebarBaseui">
-                                    <ul class="nav-second-level">
-                                        <li>
-                                            <a href="ui-accordions.html" class="tp-link">Accordions</a>
-                                        </li>
-                                        <li>
-                                            <a href="ui-alerts.html" class="tp-link">Alerts</a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </li>
 
                             <li>
-                                <a href="widgets.html" class="tp-link">
+                                <a href="{{route('contact.all.message')}}" class="tp-link">
                                     <i data-feather="aperture"></i>
-                                    <span> Widgets </span>
+                                    <span> Contact  Message </span>
                                 </a>
                             </li>
 
